@@ -1,7 +1,9 @@
-<html ng-app="RecipeApp">
+<!-- <html ng-app="RecipeApp">
 	<head>
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
+		<script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
 		<script src="/public/data.js"></script>
 		<script src="/public/recipes.js"></script>
 	</head>
@@ -34,4 +36,85 @@
 			</div>
 		</div>
 	</body>
+</html> -->
+
+
+
+<html ng-app="RecipeApp">
+	<head>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-route.min.js"></script>
+		<script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+		<script src="/public/data.js"></script>
+		<script src="/public/recipes.js"></script>
+	</head>
+	<body ng-controller="RecipeCtrl">
+		<div class="sidebar sidebar-left" toggleable parent-active-class="sidebar-left-in" id="mainSidebar">
+		  <h1 class="app-name">My App</h1>
+
+		  <div class="scrollable">
+		    <div class="scrollable-content">
+		      <div class="list-group" toggle="off" bubble target="mainSidebar">
+		        <a class="list-group-item" href="#/">Home <i class="fa fa-chevron-right pull-right"></i></a>
+		        <!-- ... -->
+		      </div>
+
+		    </div>
+		  </div>
+		</div>
+
+		<div class="app">
+
+		  <!-- Navbars -->
+		  <div class="navbar navbar-app navbar-absolute-top">
+
+		      <div class="navbar-brand navbar-brand-center" yield-to="title">
+		        <span>My App</span>
+		      </div>
+
+		      <div class="btn-group pull-left">
+		        <div ng-click="toggle('mainSidebar')" class="btn btn-navbar sidebar-toggle">
+		          <i class="fa fa-bars"></i> Menu
+		        </div>
+		      </div>
+
+		      <div class="btn-group pull-right">
+		        <div class="btn btn-navbar">
+		          <i class="fa fa-plus"></i> New
+		        </div>
+		      </div>
+		  </div>
+
+		  <div class="navbar navbar-app navbar-absolute-bottom">
+		    <div class="btn-group justified">
+		      <a href="#/route1" class="btn btn-navbar btn-icon-only"><i class="fa fa-home fa-navbar"></i></a>
+		      <a href="#/route2" class="btn btn-navbar btn-icon-only"><i class="fa fa-list fa-navbar"></i></a>
+		    </div>
+		  </div>
+
+		  <div class="app-body">
+		     <!-- <ng-view class="app-content"></ng-view> -->
+	     <div class="scrollable ng-scope" style="margin-top:50px;">
+				  <div class="scrollable-content">
+				    <div class="list-group">
+				      <a ng-repeat="recipe in recipeList" href="#" class="list-group-item ng-scope ng-binding">
+				        {{recipe}}<i class="fa fa-chevron-right pull-right"></i>
+				      </a>
+				    </div>
+				  </div>
+				</div>
+		  </div>
+		</div>
+	</body>
 </html>
+
+
+
+
+
+
+
+
+

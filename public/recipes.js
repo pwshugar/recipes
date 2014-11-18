@@ -1,14 +1,31 @@
-angular.module('RecipeApp', [])
+angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
+	.config(function($routeProvider) {
+      $routeProvider
+       //  .when('/', {
+       //  // ...
+       //  })
+	      // .when('/route1', {
+	      //   templateUrl: 'partials/phone-list.html',
+	      //   controller: 'PhoneListCtrl'
+	      // })
+	      // .when('/phones/:phoneId', {
+	      //   templateUrl: 'partials/phone-detail.html',
+	      //   controller: 'PhoneDetailCtrl'
+	      // })
+	      .otherwise({
+	        redirectTo: '/'
+	      });
+  })
 	.controller('RecipeCtrl', function ($scope) {
 	  $scope.recipes = window.recipes;
 	  $scope.recipeList = Object.keys($scope.recipes);
-	  $scope.recipeList.unshift("Select");
+	  // $scope.recipeList.unshift("Select");
 	  $scope.totalRecipe = {};
-	  $scope.selected = "Select";
+	  // $scope.selected = "Select";
 
 	  $scope.view = function(){
 	  	if ($scope.selected === "Select") return;
-	  	if ($scope.recipeList[0] === "Select") $scope.recipeList = $scope.recipeList.slice(1, $scope.recipeList.length)
+	  	// if ($scope.recipeList[0] === "Select") $scope.recipeList = $scope.recipeList.slice(1, $scope.recipeList.length)
 	  	$scope.currentRecipe = angular.copy($scope.recipes[$scope.selected]);
 	  	$scope.currentIngredients = Object.keys($scope.currentRecipe);
 	  };

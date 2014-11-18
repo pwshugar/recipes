@@ -78,8 +78,7 @@ window.recipes = {
  		"carrot": { qty: 3, type: "vegetable" },
  		"zuchini": { qty: 1, type: "vegetable" },
  		"lime": { qty: 1, type: "fruit" }
- 	}
-,
+ 	},
  	"brocolli kale soup": {
  		"brocolli": { qty: 2, type: "vegetable" },
  		"kale": { qty: 1, type: "vegetable" },
