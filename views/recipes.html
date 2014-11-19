@@ -1,0 +1,14 @@
+<div class="scrollable ng-scope">
+  <div class="scrollable-content">
+    <div class="list-group">
+    	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">Recipes</div>
+      <a ng-repeat="recipe in recipes" ng-href="#/recipe/{{recipe.name}}" class="list-group-item ng-scope ng-binding">
+        {{recipe.title}}<i class="fa fa-chevron-right pull-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+

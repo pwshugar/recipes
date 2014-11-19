@@ -4,10 +4,13 @@ angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
        //  .when('/', {
        //  // ...
        //  })
-	      // .when('/route1', {
-	      //   templateUrl: 'partials/phone-list.html',
-	      //   controller: 'PhoneListCtrl'
-	      // })
+				.when('/', {
+	        templateUrl: 'views/recipes.html'
+	      })
+	      .when('/recipe/:recipe', {
+	        templateUrl: 'views/recipeDetails.html'
+	      })
+
 	      // .when('/phones/:phoneId', {
 	      //   templateUrl: 'partials/phone-detail.html',
 	      //   controller: 'PhoneDetailCtrl'
@@ -18,7 +21,7 @@ angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
   })
 	.controller('RecipeCtrl', function ($scope) {
 	  $scope.recipes = window.recipes;
-	  $scope.recipeList = Object.keys($scope.recipes);
+	  $scope.recipeArr = _.values($scope.recipes);
 	  // $scope.recipeList.unshift("Select");
 	  $scope.totalRecipe = {};
 	  // $scope.selected = "Select";
@@ -58,6 +61,13 @@ angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
 	  	}
 	  	$scope.types = Object.keys(types);
 	  };
+	})
+	.controller('RecipeDetailsCtrl', function ($scope, $routeParams) {
+		$scope.recipes = window.recipes;
+		$scope.recipe = $scope.recipes[$routeParams.recipe];
+		$scope.ingredients = _.keys($scope.recipe.ingredients);
+		console.log($scope.recipes[$routeParams.recipe].ingredients)
+		console.log($scope.ingredients)
 	});
 
 

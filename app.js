@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 app.set('views', __dirname + '/views');
+app.use('/views', express.static(__dirname + '/views'));
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.engine('html', require('ejs').renderFile);
