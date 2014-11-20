@@ -1,11 +1,38 @@
+<style>
+	.vegetable {
+		background-color:#DBFFDB;
+	}
+	.fruit {
+		background-color:#FFF0E0;
+	}
+	.clicked {
+		background-color:#D6D6CC;
+	}
+</style>
 <div class="scrollable ng-scope" ng-controller="ListCtrl">
   <div class="scrollable-content">
     <div class="list-group">
     	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">Grocery List</div>
-      <a ng-repeat="(k, v) in groceries" class="list-group-item ng-scope ng-binding">
-        {{v.qty}} {{k}}
-        <i class="fa fa-minus pull-right" style="color:red"></i>
+      <a class="list-group-item ng-scope ng-binding vegetable"
+        ng-click="clicked = !clicked" ng-class="{'clicked': clicked}"
+        ng-repeat="veg in vegetable">
+        {{groceries[veg].qty}} {{veg}}
+        <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
+      </a>
+      <a class="list-group-item ng-scope ng-binding fruit"
+        ng-click="clicked = !clicked" ng-class="{'clicked': clicked}"
+        ng-repeat="fr in fruit">
+        {{groceries[fr].qty}} {{fr}}
+        <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
+      </a>
+      <a class="list-group-item ng-scope ng-binding" 
+        ng-click="clicked = !clicked" ng-class="{'clicked': clicked}"
+        ng-repeat="ot in other">
+        {{groceries[ot].qty}} {{ot}}
+        <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
       </a>
     </div>
   </div>
 </div>
+
+<!-- #D6D6CC -->
