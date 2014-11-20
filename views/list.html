@@ -1,0 +1,11 @@
+<div class="scrollable ng-scope" ng-controller="ListCtrl">
+  <div class="scrollable-content">
+    <div class="list-group">
+    	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">Grocery List</div>
+      <a ng-repeat="(k, v) in groceries" class="list-group-item ng-scope ng-binding">
+        {{v.qty}} {{k}}
+        <i class="fa fa-minus pull-right" style="color:red"></i>
+      </a>
+    </div>
+  </div>
+</div>

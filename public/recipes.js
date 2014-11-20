@@ -1,25 +1,6 @@
-angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
-	.config(function($routeProvider) {
-      $routeProvider
-       //  .when('/', {
-       //  // ...
-       //  })
-				.when('/', {
-	        templateUrl: 'views/recipes.html'
-	      })
-	      .when('/recipe/:recipe', {
-	        templateUrl: 'views/recipeDetails.html'
-	      })
-
-	      // .when('/phones/:phoneId', {
-	      //   templateUrl: 'partials/phone-detail.html',
-	      //   controller: 'PhoneDetailCtrl'
-	      // })
-	      .otherwise({
-	        redirectTo: '/'
-	      });
-  })
-	.controller('RecipeCtrl', function ($scope) {
+angular.module('RecipeApp')
+	.controller('RecipeCtrl', function ($scope, $rootScope){
+	  $rootScope.addNewButton = "New";
 	  $scope.recipes = window.recipes;
 	  $scope.recipeArr = _.values($scope.recipes);
 	  // $scope.recipeList.unshift("Select");
@@ -62,13 +43,6 @@ angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
 	  	$scope.types = Object.keys(types);
 	  };
 	})
-	.controller('RecipeDetailsCtrl', function ($scope, $routeParams) {
-		$scope.recipes = window.recipes;
-		$scope.recipe = $scope.recipes[$routeParams.recipe];
-		$scope.ingredients = _.keys($scope.recipe.ingredients);
-		console.log($scope.recipes[$routeParams.recipe].ingredients)
-		console.log($scope.ingredients)
-	});
 
 
 
