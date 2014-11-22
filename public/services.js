@@ -18,8 +18,21 @@ angular.module('RecipeApp')
 		};
 	})
 
-	.service('RecipeService', function($rootScope){
+	.service('RecipeService', function($rootScope, $http){
+		var recipes;
 		var currentRecipe = {};
+
+		this.setAll = function(){
+		  return $http.get("/data/recipes").success(function(data){
+			  console.log("All Recipes", data)
+		  	recipes = data;
+		  	return data;
+		  });
+		};
+
+		this.getAll = function(){
+			return recipes;
+		};
 		
 		this.set = function(recipe){
 			currentRecipe = recipe;

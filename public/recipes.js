@@ -1,7 +1,7 @@
 angular.module('RecipeApp')
-	.controller('RecipeCtrl', function ($scope, $rootScope){
+	.controller('RecipeCtrl', function ($scope, $rootScope, RecipeService){
 	  $rootScope.addNewButton = "New";
-	  $scope.recipes = window.recipes;
+	  $scope.recipes = RecipeService.getAll();
 	  $scope.recipeArr = _.values($scope.recipes);
 	  // $scope.recipeList.unshift("Select");
 	  $scope.totalRecipe = {};

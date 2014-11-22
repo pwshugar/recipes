@@ -5,6 +5,8 @@
   "dependencies": {
     "express": "*",
     "ejs": "*",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "mongodb": "~1.4.22",
+    "monk": "~0.9.1"
   }
 }

@@ -13,8 +13,8 @@ window.recipes = {
 	 		"chips": { qty: 1, type: "other" }
  	  }
  	},
- 	"thai_soup": {
- 		"name": "thai_soup",
+ 	"thaisoup": {
+ 		"name": "thaisoup",
  		"title": "Thai Soup",
  		"ingredients": {
 	 		"red chili paste": { qty: 1, type: "other" },
@@ -30,8 +30,8 @@ window.recipes = {
 	 		"quinoa": { qty: 1, type: "other" }
  		}
  	},
- 	"chipotle_bean": {
- 		"name": "chipotle_bean",
+ 	"chipotlebean": {
+ 		"name": "chipotlebean",
  		"title": "Chipotle Bean",
  		"ingredients": {
 	 		"bean": { qty: 1, type: "other" },
@@ -40,8 +40,8 @@ window.recipes = {
 	 		"quinoa": { qty: 1, type: "other" }
  	  }
  	},
- 	"tomato_soup": {
- 		"name": "tomato_soup",
+ 	"tomatosoup": {
+ 		"name": "tomatosoup",
  		"title": "Tomato Soup",
  		"ingredients": {
 	 		"onion": { qty: 1, type: "vegetable" },
@@ -52,8 +52,8 @@ window.recipes = {
 	 		"vegetable stock": { qty: 1, type: "other" }
 	 	}
  	},
- 	"cauliflour_steak": {
- 		"name": "cauliflour_steak",
+ 	"caulifloursteak": {
+ 		"name": "caulifloursteak",
  		"title": "Cauliflour Steak",
  		"ingredients": {
 	 		"cauliflower": { qty: 1, type: "vegetable" },
@@ -63,8 +63,8 @@ window.recipes = {
 	 		"garlic": { qty: 1, type: "vegetable" }
 	 	}
  	},
- 	"grapefruit_kale_juice": {
- 		"name": "grapefruit_kale_juice",
+ 	"grapefruitkalejuice": {
+ 		"name": "grapefruitkalejuice",
  		"title": "Grapefruit Kale Juice",
  		"ingredients": {
 	 		"grapefruit": { qty: 1, type: "fruit" },
@@ -73,8 +73,8 @@ window.recipes = {
 	 		"carrot bunch": { qty: 1, type: "vegetable" }
 	 	}
  	},
- 	"apple_spinach_juice": {
- 		"name": "apple_spinach_juice",
+ 	"applespinachjuice": {
+ 		"name": "applespinachjuice",
     "title": "Apple Spinach Juice",
  		"ingredients": {
 	 		"apple": { qty: 1, type: "fruit" },
@@ -84,8 +84,8 @@ window.recipes = {
 	 		"cucumber": { qty: 2, type: "vegetable" }
 	 	}
  	},
- 	"green_beans": {
- 		"name": "green_beans",
+ 	"greenbeans": {
+ 		"name": "greenbeans",
  		"title": "Green Beans",
  		"ingredients": {
 	 		"green beans": { qty: 1, type: "vegetable" },
@@ -93,8 +93,8 @@ window.recipes = {
 	 		"garlic": { qty: 1, type: "vegetable" }
 	 	}
  	},
- 	"stir_fry": {
- 		"name": "stir_fry",
+ 	"stirfry": {
+ 		"name": "stirfry",
  		"title": "Stir Fry",
  		"ingredients": {
 	 		"carrot": { qty: 2, type: "vegetable" },
@@ -103,8 +103,8 @@ window.recipes = {
 	 		"quinoa": { qty: 1, type: "other" }
 	 	}
  	},
- 	"butter_lettuce_salad": {
- 		"name": "butter_lettuce_salad",
+ 	"butterlettucesalad": {
+ 		"name": "butterlettucesalad",
  		"title": "Butter Lettuce Salad",
  		"ingredients": {
 	 		"butter lettuce": { qty: 1, type: "vegetable" },
@@ -113,8 +113,8 @@ window.recipes = {
 	 		"cucumber": { qty: 2, type: "vegetable" }
 	 	}
  	},
- 	"roast_veggies": {
- 		"name": "roast_veggies",
+ 	"roastveggies": {
+ 		"name": "roastveggies",
  		"title": "Roast Veggies",
  		"ingredients": {
 	 		"brocolli": { qty: 2, type: "vegetable" },
@@ -123,8 +123,8 @@ window.recipes = {
 	 		"lime": { qty: 1, type: "fruit" }
 	 	}
  	},
- 	"brocolli_kale_soup": {
- 		"name": "brocolli_kale_soup",
+ 	"brocollikalesoup": {
+ 		"name": "brocollikalesoup",
  		"title": "Brocolli Kale Soup",
  		"ingredients": {
 	 		"brocolli": { qty: 2, type: "vegetable" },
