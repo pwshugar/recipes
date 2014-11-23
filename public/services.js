@@ -1,6 +1,13 @@
 angular.module('RecipeApp')
-	.service('GroceryService', function($rootScope){
-		var currentList = {};
+	.service('GroceryService', function($rootScope, $http){
+		var currentList;
+
+		this.set = function(){
+			return $http.get("/data/current").success(function(data){
+			  console.log("Current Recipe", data)
+		  	currentList = data;
+		  });
+		};
 		
 		this.add = function(recipe){
 			var o = recipe.ingredients;
@@ -11,11 +18,22 @@ angular.module('RecipeApp')
 					currentList[k] = o[k];
 				}
 			}
+			return $http.post("/data/current", currentList).success(function(data){
+			  console.log("Update List", data);
+		  });
 		};
 		
 		this.get = function(){
 			return currentList;
+		};		
+
+		this.clear = function(){
+			currentList = {_id: currentList._id, user: "nams"};
+			return $http.post("/data/current", currentList).success(function(data){
+			  console.log("Clear List", data);
+		  });
 		};
+
 	})
 
 	.service('RecipeService', function($rootScope, $http){

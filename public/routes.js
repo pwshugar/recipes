@@ -5,8 +5,9 @@ angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
         if (RecipeService.getAll()) return;
         return RecipeService.setAll();
       },
-      currentRecipe: function(RecipeService){
-        return
+      currentRecipe: function(GroceryService){
+        if (GroceryService.get()) return;
+        return GroceryService.set();
       }
     };
     $routeProvider
