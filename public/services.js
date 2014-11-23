@@ -19,6 +19,12 @@ angular.module('RecipeApp')
 				}
 			}
 			return $http.post("/data/current", currentList).success(function(data){
+			  console.log("Add to List", data);
+		  });
+		};
+
+		this.update = function(list){
+			return $http.post("/data/current", list).success(function(data){
 			  console.log("Update List", data);
 		  });
 		};
@@ -29,6 +35,7 @@ angular.module('RecipeApp')
 
 		this.clear = function(){
 			currentList = {_id: currentList._id, user: "nams"};
+			$rootScope.$broadcast("clearList");
 			return $http.post("/data/current", currentList).success(function(data){
 			  console.log("Clear List", data);
 		  });

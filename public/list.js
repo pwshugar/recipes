@@ -1,15 +1,21 @@
 angular.module('RecipeApp')
 	.controller('ListCtrl', function ($scope, $rootScope, GroceryService){
-		$rootScope.addNewButton = false;
-		$scope.groceries = GroceryService.get();
-		console.log("?", $scope.groceries)
+		$rootScope.addNewButton = "Clear";
 
-		$scope.vegetable = [];
-		$scope.fruit = [];
-		$scope.other = [];
-		sortGroceries();
+		$rootScope.$on('clearList', function(){
+			init();
+		});
 
-		
+		init();
+
+		function init(){
+			$scope.groceries = GroceryService.get();
+			$scope.vegetable = [];
+			$scope.fruit = [];
+			$scope.other = [];
+			sortGroceries();
+		};		
+
 	  function sortGroceries(){
 			for (var k in $scope.groceries){
 				if ($scope.groceries[k].type){
@@ -25,6 +31,12 @@ angular.module('RecipeApp')
 			return arr.sort(function(a, b){
 				return $scope.groceries[a].qty - $scope.groceries[b].qty
 			});
+		};
+
+		$scope.clickGrocery = function(ing){
+			$scope.groceries[ing].clicked = !$scope.groceries[ing].clicked;
+			GroceryService.update($scope.groceries);
+			console.log($scope.groceries)
 		};
 
 	});

@@ -14,19 +14,19 @@
     <div class="list-group">
     	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">Grocery List</div>
       <a class="list-group-item ng-scope ng-binding vegetable"
-        ng-click="clicked = !clicked" ng-class="{'clicked': clicked}"
+        ng-click="clickGrocery(veg)" ng-class="{'clicked': groceries[veg].clicked}"
         ng-repeat="veg in vegetable">
         {{groceries[veg].qty}} {{veg}}
         <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
       </a>
       <a class="list-group-item ng-scope ng-binding fruit"
-        ng-click="clicked = !clicked" ng-class="{'clicked': clicked}"
+        ng-click="clickGrocery(fr)" ng-class="{'clicked': groceries[fr].clicked}"
         ng-repeat="fr in fruit">
         {{groceries[fr].qty}} {{fr}}
         <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
       </a>
       <a class="list-group-item ng-scope ng-binding" 
-        ng-click="clicked = !clicked" ng-class="{'clicked': clicked}"
+        ng-click="clickGrocery(ot)" ng-class="{'clicked': groceries[ot].clicked}"
         ng-repeat="ot in other">
         {{groceries[ot].qty}} {{ot}}
         <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->

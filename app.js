@@ -1,3 +1,4 @@
+var port = process.env.PORT || 5000;
 var _ = require('underscore')
 
 var mongo = require('mongodb');
@@ -43,26 +44,24 @@ app.get('/data/recipes', function(req, res){
 		recipes.forEach(function(rec){
 			obj[rec.name] = rec;
 		})
-		res.send(obj);
+		res.json(obj);
 	});
 });
 
 app.get('/data/current', function(req, res){
 	groceryDB.find({user:"nams"}, function(err, groceries){
 		console.log("get", err, groceries)
-		res.send(groceries[0]);
+		res.json(groceries[0]);
 	});
 });
 
 app.post('/data/current', function(req, res){
-	console.log("NEW DATA", req.body)
 	groceryDB.updateById(req.body._id, req.body, function(err, groceries){
 		console.log("post", err, groceries)
-		res.send(groceries);
+		res.json(groceries);
 	});
 });
 
-var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Express server listening on port " + port);
 });

@@ -4,11 +4,16 @@ angular.module('RecipeApp')
 
 		$scope.clicked = function(state){
 			if (state === "Add") addRecipe();
+			else if (state === "Clear") clearGroceries();
 		};
 
 		function addRecipe(){
 			GroceryService.add(RecipeService.get());
 			$location.path("/")
+		};
+
+		function clearGroceries(){
+			GroceryService.clear();
 		};
 
 	});
