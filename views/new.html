@@ -1,0 +1,57 @@
+<style>
+	.add-button {
+		width: 90%;
+		height: 50px;
+		border-radius: 10px;
+		background-color: green;
+		color: white;
+		line-height: 50px;
+		text-align: center;
+		font-size: 20px;
+		margin:auto;
+	}
+</style>
+<div class="scrollable ng-scope">
+  <div class="scrollable-content">
+    <div class="list-group">
+    	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">{{newRecipe.title}}</div>
+     <!--  <a ng-repeat="ingredient in ingredients" class="list-group-item ng-scope ng-binding">
+        {{recipe.ingredients[ingredient].qty}} {{ingredient}}
+        <i class="fa fa-minus pull-right" style="color:red"></i>
+      </a> -->
+       <a class="list-group-item ng-scope ng-binding" ng-click="remove(k)"
+         ng-repeat="(k, v) in newRecipe.ingredients">
+        {{v.qty}} {{k}}
+        <i class="fa fa-minus pull-right" style="color:red"></i>
+      </a>
+    </div>
+    <div ng-show="!newRecipe"
+      style="background-color:lightgray;height:120px;margin-bottom:20px;padding-top:1px;">
+			<input style="margin: 10px 0;width:95%;margin:10px auto;" ng-model="newTitle"
+	      class="form-control" placeholder="Add Recipe" />
+			<div class="add-button" ng-click="add1()">Add</div>
+    </div>
+    <div ng-show="newRecipe" style="background-color:lightgray;height:210px;margin-bottom:20px;padding-top:1px;">
+	    <input style="margin: 10px 0;width:95%;margin:10px auto;" ng-model="newIngredient"
+	      class="form-control" placeholder="Add ingredient" />
+	    <select ng-model="selectType" style="width:95%;margin:auto;margin-bottom:10px;" class="form-control">
+	    	<option>vegetable</option>
+	    	<option>fruit</option>
+	    	<option>other</option>
+	    <select/>
+	    <select ng-model="selectQty" style="width:95%;margin:auto;margin-bottom:10px;" class="form-control">
+	    	<option>1</option>
+	    	<option>2</option>
+	    	<option>3</option>
+	    	<option>4</option>
+	    	<option>5</option>
+	    	<option>6</option>
+	    	<option>7</option>
+	    	<option>8</option>
+	    	<option>9</option>
+	    	<option>10</option>
+	    <select/>
+	    <div class="add-button" ng-click="add2()">Add</div>
+    </div>
+  </div>
+</div>

@@ -29,6 +29,11 @@ angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
         controller: "RecipeDetailsCtrl",
         resolve: resolves
       })
+      .when('/new', {
+        templateUrl: 'views/new.html',
+        controller: "NewCtrl",
+        resolve: resolves
+      })
 
       // .when('/phones/:phoneId', {
       //   templateUrl: 'partials/phone-detail.html',
