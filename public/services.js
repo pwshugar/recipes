@@ -43,7 +43,7 @@ angular.module('RecipeApp')
 
 	})
 
-	.service('RecipeService', function($rootScope, $http){
+	.service('RecipeService', function($rootScope, $http, $location){
 		var recipes;
 		var currentRecipe = {};
 
@@ -85,6 +85,7 @@ angular.module('RecipeApp')
 			  return $http.post("/data/addRecipe", newRecipe).success(function(data){
 				  console.log("Add New Recipe", data);
 				  recipes = data;
+				  $location.path("/");
 			  });
 			}
 		};
