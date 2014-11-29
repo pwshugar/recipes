@@ -11,7 +11,7 @@ var app = express();
 var recipeDB = db.get('recipes');
 var groceryDB = db.get('groceries');
 
-// var recipe = recipeDB.findById("54711663458a5384ed12b9c4", function(err, data){
+// var recipe = recipeDB.findById("54791f77055cf73733738ae2", function(err, data){
 // 	console.log(err, data)
 //   recipeDB.remove(data, function(err, data){
 //     console.log("data",data)
@@ -33,6 +33,7 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.engine('html', require('ejs').renderFile);
 
+// routes
 
 app.get('/', function(req, res){
   res.render('index.html');
@@ -61,6 +62,21 @@ app.post('/data/current', function(req, res){
 		res.json(groceries);
 	});
 });
+
+app.post('/data/addRecipe', function(req, res){
+	recipeDB.insert(req.body, function(err, recipe){
+		console.log(err, recipe)
+		recipeDB.find({}, function(err, recipes){
+			var obj = {};
+			recipes.forEach(function(rec){
+				obj[rec.name] = rec;
+			})
+			res.json(obj);
+		});
+	});
+});
+
+// port
 
 app.listen(port, function() {
   console.log("Express server listening on port " + port);

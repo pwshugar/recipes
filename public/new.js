@@ -1,6 +1,6 @@
 angular.module('RecipeApp')
 	.controller('NewCtrl', function ($scope, $rootScope, RecipeService){
-		$rootScope.addNewButton = null;
+		$rootScope.addNewButton = "Add Recipe";
 
 	  // $scope.newRecipe = { 
 	 	// 	"name": "mexican",
@@ -46,7 +46,6 @@ angular.module('RecipeApp')
 		};
 
 		$scope.add2 = function(){
-			console.log("?", $scope.newIngredient)
 		  if ($scope.newIngredient){
 				var ing = $scope.newRecipe.ingredients[$scope.newIngredient];
 				if (ing){
@@ -61,6 +60,12 @@ angular.module('RecipeApp')
 				clearInput();
 		  }
 		};
+
+		$rootScope.$on("addNewRecipe", function(){
+			if ($scope.newRecipe){
+			  RecipeService.addNew($scope.newRecipe);
+			}
+		});
 
 	});
 

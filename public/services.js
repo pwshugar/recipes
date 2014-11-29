@@ -79,6 +79,25 @@ angular.module('RecipeApp')
 			return currentRecipe;
 		};
 
+		this.addNew = function(newRecipe){
+			newRecipe.name = newRecipe.title.replace(" ", "").toLowerCase();
+			if (checkName(newRecipe.name)){
+			  return $http.post("/data/addRecipe", newRecipe).success(function(data){
+				  console.log("Add New Recipe", data);
+				  recipes = data;
+			  });
+			}
+		};
+
+		function checkName(name){
+			for (var k in recipes){
+				if (recipes[k].name === name){
+					return false;
+				}
+			}
+			return true;
+		};
+
 	});
 
 
