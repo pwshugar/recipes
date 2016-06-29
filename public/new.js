@@ -47,12 +47,13 @@ angular.module('RecipeApp')
 
 		$scope.add2 = function(){
 		  if ($scope.newIngredient){
-				var ing = $scope.newRecipe.ingredients[$scope.newIngredient];
+		  	var newIngredient = $scope.newIngredient.toLowerCase();
+				var ing = $scope.newRecipe.ingredients[newIngredient];
 				if (ing){
 					ing.qty = (parseInt(ing.qty) + parseInt($scope.selectQty)) + "";
 					ing.type = $scope.selectType;
 				} else {
-					$scope.newRecipe.ingredients[$scope.newIngredient] = {
+					$scope.newRecipe.ingredients[newIngredient] = {
 						type: $scope.selectType,
 						qty: $scope.selectQty
 					};

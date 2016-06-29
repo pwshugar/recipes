@@ -1,4 +1,10 @@
 angular.module('RecipeApp', ["ngRoute", "mobile-angular-ui"])
+  .run(function($rootScope){
+    angular.extend($rootScope, {
+      typeSelections: ["vegetable", "fruit", "meat", "other"],
+      qtySelections: [1,2,3,4,5,6,7,8,9,10]
+    });
+  })
 	.config(function($routeProvider){
     var resolves = {
       recipes: function(RecipeService){

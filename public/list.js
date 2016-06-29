@@ -1,5 +1,5 @@
 angular.module('RecipeApp')
-	.controller('ListCtrl', function ($scope, $rootScope, GroceryService){
+	.controller('ListCtrl', function ($scope, $rootScope, GroceryService, $window){
 		$rootScope.addNewButton = "Clear";
 
 		$rootScope.$on('clearList', function(){
@@ -10,11 +10,16 @@ angular.module('RecipeApp')
 
 		function init(){
 			$scope.groceries = GroceryService.get();
-			$scope.vegetable = [];
-			$scope.fruit = [];
-			$scope.other = [];
+			$rootScope.typeSelections.forEach(function(type){ $scope[type] = [] });
 			sortGroceries();
-		};		
+			clearInput();
+		};
+
+		function clearInput(){
+	 		$scope.newIngredient = "";
+			$scope.selectType = "vegetable";
+			$scope.selectQty = "1";
+	 	};	
 
 	  function sortGroceries(){
 			for (var k in $scope.groceries){
@@ -22,9 +27,7 @@ angular.module('RecipeApp')
 				  $scope[$scope.groceries[k].type].push(k);
 				}
 			}
-			sortByQty($scope.vegetable);
-			sortByQty($scope.fruit);
-			sortByQty($scope.other);
+			$rootScope.typeSelections.forEach(function(type){ sortByQty($scope[type]) });
 		};
 
 		function sortByQty(arr){
@@ -36,7 +39,18 @@ angular.module('RecipeApp')
 		$scope.clickGrocery = function(ing){
 			$scope.groceries[ing].clicked = !$scope.groceries[ing].clicked;
 			GroceryService.update($scope.groceries);
-			console.log($scope.groceries)
+		};
+
+		$scope.addMore = function(){
+			$scope.addMoreView = false;
+			if ($scope.newIngredient){
+				var newAddition = {
+					ingredients: {}
+				};
+				newAddition.ingredients[$scope.newIngredient] = { qty: $scope.selectQty, type: $scope.selectType };
+				GroceryService.add(newAddition);
+				init();
+			}
 		};
 
 	});

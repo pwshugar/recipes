@@ -1,11 +1,7 @@
 <div class="scrollable ng-scope">
   <div class="scrollable-content">
     <div class="list-group">
-    	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">{{recipe.title}}</div>
-     <!--  <a ng-repeat="ingredient in ingredients" class="list-group-item ng-scope ng-binding">
-        {{recipe.ingredients[ingredient].qty}} {{ingredient}}
-        <i class="fa fa-minus pull-right" style="color:red"></i>
-      </a> -->
+    	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">{{recipe.title}}<div class="btn btn-danger" style="float:right" ng-click="removeRecipe()">Delete</div></div>
        <a class="list-group-item ng-scope ng-binding" ng-click="remove(k)"
          ng-repeat="(k, v) in recipe.ingredients">
         {{v.qty}} {{k}}

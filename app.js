@@ -49,6 +49,28 @@ app.get('/data/recipes', function(req, res){
 	});
 });
 
+app.delete('/data/recipes/:id', function(req, res){
+	console.log({ _id: req.params.id })
+	recipeDB.remove({ _id: req.params.id }, function(err, data){
+		console.log(err, data)
+	  res.end()
+	})
+});
+
+// should makes this /data/recipes
+app.post('/data/addRecipe', function(req, res){
+	recipeDB.insert(req.body, function(err, recipe){
+		console.log(err, recipe)
+		recipeDB.find({}, function(err, recipes){
+			var obj = {};
+			recipes.forEach(function(rec){
+				obj[rec.name] = rec;
+			})
+			res.json(obj);
+		});
+	});
+});
+
 app.get('/data/current', function(req, res){
 	groceryDB.find({user:"nams"}, function(err, groceries){
 		console.log("get", err, groceries)
@@ -60,19 +82,6 @@ app.post('/data/current', function(req, res){
 	groceryDB.updateById(req.body._id, req.body, function(err, groceries){
 		console.log("post", err, groceries)
 		res.json(groceries);
-	});
-});
-
-app.post('/data/addRecipe', function(req, res){
-	recipeDB.insert(req.body, function(err, recipe){
-		console.log(err, recipe)
-		recipeDB.find({}, function(err, recipes){
-			var obj = {};
-			recipes.forEach(function(rec){
-				obj[rec.name] = rec;
-			})
-			res.json(obj);
-		});
 	});
 });
 

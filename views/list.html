@@ -2,8 +2,11 @@
 	.vegetable {
 		background-color:#DBFFDB;
 	}
-	.fruit {
-		background-color:#FFF0E0;
+  .fruit {
+    background-color:#FFF0E0;
+  }
+	.meat {
+		background-color: #ff5c33;
 	}
 	.clicked {
 		background-color:#D6D6CC;
@@ -12,7 +15,7 @@
 <div class="scrollable ng-scope">
   <div class="scrollable-content">
     <div class="list-group">
-    	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">Grocery List</div>
+    	<div style="height:60px;font-size:20px;background-color:white;padding:15px;border-bottom:1px solid black">Grocery List<div class="btn btn-default" style="float:right" ng-click="addMoreView = true">Add</div></div>
       <a class="list-group-item ng-scope ng-binding vegetable"
         ng-click="clickGrocery(veg)" ng-class="{'clicked': groceries[veg].clicked}"
         ng-repeat="veg in vegetable">
@@ -25,12 +28,29 @@
         {{groceries[fr].qty}} {{fr}}
         <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
       </a>
+      <a class="list-group-item ng-scope ng-binding meat"
+        ng-click="clickGrocery(mt)" ng-class="{'clicked': groceries[mt].clicked}"
+        ng-repeat="mt in meat">
+        {{groceries[mt].qty}} {{mt}}
+        <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
+      </a>
       <a class="list-group-item ng-scope ng-binding" 
         ng-click="clickGrocery(ot)" ng-class="{'clicked': groceries[ot].clicked}"
         ng-repeat="ot in other">
         {{groceries[ot].qty}} {{ot}}
         <!-- <i class="fa fa-minus pull-right" style="color:red"></i> -->
       </a>
+    </div>
+    <div ng-show="addMoreView" style="background-color:lightgray;height:210px;margin-bottom:20px;padding-top:1px;">
+      <input style="margin: 10px 0;width:95%;margin:10px auto;" ng-model="newIngredient"
+        class="form-control" placeholder="Add ingredient" />
+      <select ng-model="selectType" style="width:95%;margin:auto;margin-bottom:10px;" class="form-control">
+        <option ng-repeat="type in typeSelections">{{type}}</option>
+      <select/>
+      <select ng-model="selectQty" style="width:95%;margin:auto;margin-bottom:10px;" class="form-control">
+        <option ng-repeat="qty in qtySelections">{{qty}}</option>
+      <select/>
+      <div class="add-button" ng-click="addMore()">Add</div>
     </div>
   </div>
 </div>

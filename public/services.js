@@ -13,7 +13,8 @@ angular.module('RecipeApp')
 			var o = recipe.ingredients;
 			for (var k in o){
 				if (currentList[k]){
-					currentList[k].qty += o[k].qty;
+					var newQty = (parseInt(currentList[k].qty) + parseInt(o[k].qty)) + "";
+					currentList[k].qty = newQty;
 				} else {
 					currentList[k] = o[k];
 				}
@@ -77,6 +78,14 @@ angular.module('RecipeApp')
 				}
 			}
 			return currentRecipe;
+		};
+
+		this.removeRecipe = function(){
+			delete recipes[currentRecipe.name];
+			$location.path("/");
+		  $http.delete("/data/recipes/" + currentRecipe._id).success(function(data){
+			  console.log("Remove Recipe", data)
+		  });
 		};
 
 		this.addNew = function(newRecipe){

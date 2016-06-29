@@ -11,6 +11,10 @@ angular.module('RecipeApp')
 	  $scope.remove = function(ingredient){
 	  	$scope.recipe = RecipeService.remove(ingredient);
 	  }
+
+	  $scope.removeRecipe = function(){
+	  	RecipeService.removeRecipe();
+	  }
 	});
 
 
